@@ -5,7 +5,7 @@
 # Komponente Klima
 external_components:
   - source:
-      url: https://github.com/tim247/tcl_ac.git
+      url: https://github.com/tim247/TLC_AC.git
       type: git
       ref: master
     components: [ tclac ]
