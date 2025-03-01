@@ -3,6 +3,7 @@
 * and modify by xaxexa
 * Refactoring & component making:
 * Соловей с паяльником 15.03.2024
+* Sprache in Deutsch geändert by Tim247 on 01.03.2025
 **/
 
 #ifndef TCL_ESP_TCL_H
@@ -86,13 +87,13 @@ class tclacClimate : public climate::Climate, public esphome::uart::UARTDevice, 
 
 	private:
 		byte checksum;
-		// dataTX с управлением состоит из 38 байт
+		// dataTX mit Steuerung besteht aus 38 Bytes
 		byte dataTX[38];
-		// А dataRX по прежнему из 61 байта
+		// dataRX ist immer noch 61 Bytes lang
 		byte dataRX[61];
-		// Команда запроса состояния
+		// Befehl zur Statusabfrage
 		byte poll[8] = {0xBB,0x00,0x01,0x04,0x02,0x01,0x00,0xBD};
-		// Инициализация и начальное наполнение переменных состоянй переключателей
+		// Initialisierung und Erstbefüllung von Schaltzustandsvariablen
 		bool beeper_status_;
 		bool display_status_;
 		bool force_mode_status_;
