@@ -15,13 +15,13 @@ font:
     id: font1
     size: 16
     bpp: 1
-    glyphs: '!"%()+=,-_.:°/?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyzАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЬЭЮЯЫабвгдежзиклмнопрстуфхцчшщъыьэюя'
+    glyphs: '!"%()+=,-_.:°/?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZÄÜÖß abcdefghijklmnopqrstuvwxyzäüö'
     
   - file: "gfonts://Press Start 2P"
     id: font2
     size: 8
     bpp: 1
-    glyphs: '!"%()+=,-_.:°/?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ abcdefghijklmnopqrstuvwxyzАБВГДЕЖЗИКЛМНОПРСТУФХЦЧШЩЪЬЭЮЯЫабвгдежзиклмнопрстуфхцчшщъыьэюя'
+    glyphs: '!"%()+=,-_.:°/?0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZÄÜÖß abcdefghijklmnopqrstuvwxyzäüö'
 
 i2c:
   sda: GPIO0
@@ -41,24 +41,24 @@ display:
         id(oled_disp).line(0, 11, 127, 11);
         
         if (id(${device_name}climate).mode == CLIMATE_MODE_OFF){
-          id(oled_disp).print(0, 14, id(font1), "Выключен");
+          id(oled_disp).print(0, 14, id(font1), "Aus");
         } else if (id(${device_name}climate).mode == CLIMATE_MODE_AUTO){
-          id(oled_disp).print(0, 14, id(font1), "Авто");
+          id(oled_disp).print(0, 14, id(font1), "Auto");
         } else if (id(${device_name}climate).mode == CLIMATE_MODE_COOL){
-          id(oled_disp).print(0, 14, id(font1), "Мороз");
+          id(oled_disp).print(0, 14, id(font1), "Kühlen");
         } else if (id(${device_name}climate).mode == CLIMATE_MODE_HEAT){
-          id(oled_disp).print(0, 14, id(font1), "Жара");
+          id(oled_disp).print(0, 14, id(font1), "Heizen");
         } else if (id(${device_name}climate).mode == CLIMATE_MODE_DRY){
-          id(oled_disp).print(0, 14, id(font1), "Пустыня");
+          id(oled_disp).print(0, 14, id(font1), "Trocknen");
         } else if (id(${device_name}climate).mode == CLIMATE_MODE_FAN_ONLY){
-          id(oled_disp).print(0, 14, id(font1), "Ветер");
+          id(oled_disp).print(0, 14, id(font1), "Lüftung");
         }
         
         if (id(beep_mode).state){
-          id(oled_disp).print(60, 0, id(font2), "П");
+          id(oled_disp).print(60, 0, id(font2), "B");
         }
         if (id(display_mode).state){
-          id(oled_disp).print(80, 0, id(font2), "Д");
+          id(oled_disp).print(80, 0, id(font2), "D");
         }
         if (id(wifi_strenght).state > 20){
           id(oled_disp).filled_rectangle(109, 6, 3, 2);
@@ -74,5 +74,5 @@ display:
         }
       }
       else {
-        id(oled_disp).print(0, 0, id(font1), "Готов!");
+        id(oled_disp).print(0, 0, id(font1), "Bereit!");
       }
